@@ -1,0 +1,4 @@
+﻿export function LoadingState({ view }) { return <div className={`skeleton-${view}`} aria-label="Loading posts">{Array.from({ length: view === 'table' ? 6 : 4 }, (_, i) => <div className="skeleton-line" key={i} />)}</div>; }
+export function EmptyState({ onReset }) { return <div className="empty-state"><div className="empty-sun" aria-hidden="true" /><h2>No matching posts.</h2><p>Try another search or clear your filters to see the collection.</p><button className="button button-dark" onClick={onReset}>Reset filters</button></div>; }
+export function ErrorState({ onRetry }) { return <div className="empty-state error-state" role="alert"><div className="state-mark" aria-hidden="true">!</div><h2>Couldn't load the posts.</h2><p>Check your connection, then give the explorer another try.</p><button className="button button-dark" onClick={onRetry}>Retry</button></div>; }
+
